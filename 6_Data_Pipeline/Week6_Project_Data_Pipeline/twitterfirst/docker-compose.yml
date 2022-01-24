@@ -1,0 +1,31 @@
+version: '3'
+services:
+  twitterfirst:
+    build: src_twitter
+    volumes: 
+    - ./src_twitter/:/app
+    container_name: Twitterniner
+    links: 
+    - mongodb
+  mongodb: 
+    image: mongo
+    container_name: Mongoniner
+    ports:
+    - 27017:27017
+  postgresdb:
+    image: postgres
+    container_name: pg
+    ports:
+    - 5555:5432
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=pgdb
+  etl:
+    build: src_etl
+    container_name: etlniner
+    volumes:
+      - ./src_etl/:/app
+    depends_on:
+      - mongodb
+      - postgresdb
