@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>{{my_title}}r</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        <h1>Your Movie Recommandations</h1>
+        <p> These 10 films are the recommandations for you. All recommandations are based
+            on your ratings!  </p>
+        <ul>
+            <!-- Jinja for loop -->
+            {% for Title in my_title_list  %}
+            <li>{{Title}}</li>
+            {% endfor %}
+
+
+            <!-- Jinja tag -->
+
+        <img src="gif.gif" alt='Star Wars'>
+
+        <a href='/Final_Movie'> Tap here for a random movie from your list
+
+        
+        </ul>
+    </body>
+</html>
